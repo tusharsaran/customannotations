@@ -24,5 +24,5 @@ jobs:
       run: mvn -B package --file pom.xml
       working-directory: /home/runner/work/java.custom-annotations/customannotations
       env :
-        GITHUB_REPOSITORY: /home/runner/work/java.custom-annotations/java.custom-annotations
-        GITHUB_WORKFLOW: /home/runner/work/java.custom-annotations/java.custom-annotations
+        GITHUB_REPOSITORY: /home/runner/work/java.custom-annotations/customannotations
+        GITHUB_WORKFLOW: /home/runner/work/java.custom-annotations/customannotations
