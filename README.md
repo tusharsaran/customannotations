@@ -15,46 +15,8 @@ You’ll create an application that provides the time of day and then build it w
 + [Install Maven on Mac OSX](https://www.baeldung.com/install-maven-on-windows-linux-mac#installing-maven-on-mac-os-x)
 
 ## Set up the project
-First you’ll need to setup a Java project for Maven to build. To keep the focus on Maven, make the project as simple as possible for now.
+import the project as Existing Maven project in eclipse
 
-#### Create the directory structure
----
-+ Create a root project directory named `HelloWorldMaven` and `cd HelloWorldMaven`.
-+ In a project directory of your choosing, create the following subdirectory structure.
-+ For example, with `mkdir -p src/main/java/hello` on *nix systems:*
-
-+ on Windows you can create this directory manually.
-
-    ```
-    └── src
-        └── main
-            └── java
-                └── hello
-    ```
-+ Within the `src/main/java/hello` directory, you can create any Java classes you want. To maintain consistency with the rest of this guide, create these two classes: `HelloWorld.java` and `Greeter.java`.
-
-+ `src/main/java/hello/HelloWorld.java`
-  ```
-  package hello;
-  public class HelloWorld {
-      public static void main(String[] args) {
-          Greeter greeter = new Greeter();
-          System.out.println(greeter.sayHello());
-      }
-  }
-  ```
-
- + `src/main/java/hello/Greeter.java`
-    ```
-    package hello;
-    public class Greeter {
-        public String sayHello() {
-            return "Hello world!";
-        }
-    }
-    ```
-
-Now that you have a project that is ready to be built with Maven, the next step is to build this project with Maven.
 
 ### Define a simple Maven build
 ---
@@ -66,40 +28,25 @@ Now that you have a project that is ready to be built with Maven, the next step 
  `pom.xml`
 
 ```
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>org.springframework</groupId>
-    <artifactId>jb-hello-world-maven</artifactId>
-    <packaging>jar</packaging>
-    <version>0.1.0</version>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>2.1</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <transformers>
-                                <transformer
-                                    implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>hello.HelloWorld</mainClass>
-                                </transformer>
-                            </transformers>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>customAnnotations</groupId>
+  <artifactId>customAnnotations</artifactId>
+  <name>customAnnotations</name>
+  <description>this is to create custom annotation in java</description>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.7.0</version>
+        <configuration>
+          <release>9</release>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <version>0.0.1</version>
 </project>
 ```
 With the exception of the optional `<packaging>` element, this is the simplest possible `pom.xml` file necessary to build a Java project. It includes the following details of the project configuration:
