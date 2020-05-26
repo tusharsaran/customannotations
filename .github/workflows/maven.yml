@@ -22,7 +22,3 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-      working-directory: /home/runner/work/java.custom-annotations/customannotations
-      env :
-        GITHUB_REPOSITORY: /home/runner/work/java.custom-annotations/customannotations
-        GITHUB_WORKFLOW: /home/runner/work/java.custom-annotations/customannotations
